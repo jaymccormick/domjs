@@ -5,26 +5,30 @@ const input = form.querySelector('input');
 
 const ul = document.getElementById('invitedList');
 
+function createLI(text){
+  const li = document.createElement('li');
+  li.textContent = text;
+  const label = document.createElement('label');
+  label.textContent = 'confirmed';
+  const checkbox = document.createElement('input');
+  checkbox.type = 'checkbox';
+  label.appendChild(checkbox);
+  li.appendChild(label);
+  const button = document.createElement('button');
+  button.textContent = 'remove';
+  li.appendChild(button);
+  return li;
+}
+
 form.addEventListener('submit', (e) =>
   {
     // prevent submit object e default behavior
     // so page doesn't reload on submit
     e.preventDefault();
-
     const text = input.value;
     input.value = '';
 
-    const li = document.createElement('li');
-    li.textContent = text;
-    const label = document.createElement('label');
-    label.textContent = 'confirmed';
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    label.appendChild(checkbox);
-    li.appendChild(label);
-    const button = document.createElement('button');
-    button.textContent = 'remove';
-    li.appendChild(button);
+    const li = createLI(text);
     ul.appendChild(li);
   });
 
