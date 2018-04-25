@@ -3,6 +3,8 @@ const form = document.getElementById('registrar');
 //select form input element to get text users enter
 const input = form.querySelector('input');
 
+const ul = document.getElementById('invitedList');
+
 form.addEventListener('submit', (e) =>
   {
     // prevent submit object e default behavior
@@ -11,7 +13,7 @@ form.addEventListener('submit', (e) =>
 
     const text = input.value;
     input.value = '';
-    const ul = document.getElementById('invitedList');
+
     const li = document.createElement('li');
     li.textContent = text;
     const label = document.createElement('label');
@@ -24,4 +26,16 @@ form.addEventListener('submit', (e) =>
     button.textContent = 'remove';
     li.appendChild(button);
     ul.appendChild(li);
+  });
+
+// click received by button and 'bubbles up' to li and then ul
+ul.addEventListener('click', (e) => {
+  // filter click events that aren't buttons
+  if (e.target.tagName === 'BUTTON'){
+    // get parent node of button
+    const li = e.target.parentNode;
+    const ul = li.parentNode;
+    ul.removeChild(li);
+  }
+
   });
