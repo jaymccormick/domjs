@@ -1,2 +1,2 @@
 # domjs
-built with treehouse's guidance
+built with treehouse

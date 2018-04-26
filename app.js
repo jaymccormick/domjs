@@ -40,6 +40,10 @@ ul.addEventListener('click', (e) => {
     const li = e.target.parentNode;
     const ul = li.parentNode;
     ul.removeChild(li);
+  } else {
+    const liLabel = e.target.parentNode;
+    const li = liLabel.parentNode;
+    li.className = 'responded';
   }
 
   });
