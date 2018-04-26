@@ -14,9 +14,17 @@ function createLI(text){
   checkbox.type = 'checkbox';
   label.appendChild(checkbox);
   li.appendChild(label);
-  const button = document.createElement('button');
-  button.textContent = 'remove';
-  li.appendChild(button);
+
+  // edit button
+  const editButton = document.createElement('button');
+  editButton.textContent = 'edit';
+  li.appendChild(editButton);
+
+  // remove button
+  const removeButton = document.createElement('button');
+  removeButton.textContent = 'remove';
+  li.appendChild(removeButton);
+
   return li;
 }
 
@@ -36,10 +44,14 @@ form.addEventListener('submit', (e) =>
 ul.addEventListener('click', (e) => {
   // filter click events that aren't buttons
   if (e.target.tagName === 'BUTTON'){
+    if(e.target.textContent === 'remove'){
     // get parent node of button
     const li = e.target.parentNode;
     const ul = li.parentNode;
     ul.removeChild(li);
+    } else if (e.target.textContent === 'edit') {
+        console.log(e.target.textContent);
+    }
   }
 });
 
