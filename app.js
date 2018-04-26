@@ -40,10 +40,18 @@ ul.addEventListener('click', (e) => {
     const li = e.target.parentNode;
     const ul = li.parentNode;
     ul.removeChild(li);
-  } else {
-    const liLabel = e.target.parentNode;
-    const li = liLabel.parentNode;
-    li.className = 'responded';
   }
+});
 
-  });
+// use checkbox change event to get/set responded class
+ul.addEventListener('change', (e) => {
+  const checkbox = e.target;
+  const checked = checkbox.checked; // storing truth value
+  const listItem = checkbox.parentNode.parentNode; // traverse to li
+
+  if (checked){
+    listItem.className = 'responded';
+  } else {
+    listItem.className = '';
+  }
+});
