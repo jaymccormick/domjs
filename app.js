@@ -44,13 +44,14 @@ form.addEventListener('submit', (e) =>
 ul.addEventListener('click', (e) => {
   // filter click events that aren't buttons
   if (e.target.tagName === 'BUTTON'){
-    if(e.target.textContent === 'remove'){
+    const button = e.target;
+    if(button.textContent === 'remove'){
     // get parent node of button
-    const li = e.target.parentNode;
-    const ul = li.parentNode;
-    ul.removeChild(li);
-    } else if (e.target.textContent === 'edit') {
-        console.log(e.target.textContent);
+      const li = button.parentNode;
+      const ul = li.parentNode;
+      ul.removeChild(li);
+  } else if (button.textContent === 'edit') {
+        console.log(button.textContent);
     }
   }
 });
