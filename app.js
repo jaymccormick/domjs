@@ -60,10 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     appendToLI('label', 'textContent', 'confirmed');
 
-    const label = appendToLI('label', 'textContent', text)
-    const checkbox = createElement('input', 'type', 'checkbox');
-    label.appendChild(checkbox);
-    
+    appendToLI('label', 'textContent', text)
+      .appendChild(createElement('input', 'type', 'checkbox'));
+
 
     // edit button
     appendToLI('button', 'textContent', 'edit');
