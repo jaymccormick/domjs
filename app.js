@@ -47,24 +47,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const li = document.createElement('li');
-    const span = document.createElement('span');
-    span.textContent = text;
+
+    const span = createElement('span', 'textContent', text);
+
     li.appendChild(span);
-    const label = document.createElement('label');
-    label.textContent = 'confirmed';
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
+
+    const label = createElement('label', 'textContent', 'confirmed');
+
+    const checkbox = createElement('input', 'type', 'checkbox');
+
     label.appendChild(checkbox);
     li.appendChild(label);
 
     // edit button
-    const editButton = document.createElement('button');
-    editButton.textContent = 'edit';
+    const editButton = createElement('button', 'textContent', 'edit');
+
     li.appendChild(editButton);
 
     // remove button
-    const removeButton = document.createElement('button');
-    removeButton.textContent = 'remove';
+    const removeButton = createElement('button', 'textContent', 'remove');
+    
     li.appendChild(removeButton);
 
     return li;
