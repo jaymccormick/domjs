@@ -46,28 +46,28 @@ document.addEventListener('DOMContentLoaded', () => {
       return element;
     }
 
+    // private function to append elements to list items
+    function appendToLI(elementName, property, value){
+      const element = createElement(elementName, property, value);
+      li.appendChild(element);
+    }
+
     const li = document.createElement('li');
 
-    const span = createElement('span', 'textContent', text);
+    appendToLI('span', 'textContent', text);
 
-    li.appendChild(span);
+    appendToLI('label', 'textContent', 'confirmed');
 
-    const label = createElement('label', 'textContent', 'confirmed');
-
+    const label = createElement('label', 'textContent', text)
     const checkbox = createElement('input', 'type', 'checkbox');
-
     label.appendChild(checkbox);
     li.appendChild(label);
 
     // edit button
-    const editButton = createElement('button', 'textContent', 'edit');
-
-    li.appendChild(editButton);
+    appendToLI('button', 'textContent', 'edit');
 
     // remove button
-    const removeButton = createElement('button', 'textContent', 'remove');
-    
-    li.appendChild(removeButton);
+    appendToLI('button', 'textContent', 'remove');
 
     return li;
   }
