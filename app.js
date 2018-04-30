@@ -50,6 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function appendToLI(elementName, property, value){
       const element = createElement(elementName, property, value);
       li.appendChild(element);
+      // return element to give access to it
+      return element;
     }
 
     const li = document.createElement('li');
@@ -58,10 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     appendToLI('label', 'textContent', 'confirmed');
 
-    const label = createElement('label', 'textContent', text)
+    const label = appendToLI('label', 'textContent', text)
     const checkbox = createElement('input', 'type', 'checkbox');
     label.appendChild(checkbox);
-    li.appendChild(label);
+    
 
     // edit button
     appendToLI('button', 'textContent', 'edit');
