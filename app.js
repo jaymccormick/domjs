@@ -37,6 +37,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function createLI(text){
+    // private function to create elements
+    function createElement(elementName, property, value){
+      const element = document.createElement(elementName);
+      // use string for property to access element property
+      element[property] = value;
+      // return element created and configured
+      return element;
+    }
+
     const li = document.createElement('li');
     const span = document.createElement('span');
     span.textContent = text;
