@@ -105,16 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
           button.textContent = 'edit';
         }
       };
-
-
-
-      if(button.textContent === 'remove'){
-        nameActions.remove();
-      } else if (button.textContent === 'edit') {
-        nameActions.edit();
-      } else if (button.textContent === 'save'){
-        nameActions.save();
-      }
+      const action = button.textContent;
+      nameActions[action]();
     }
   });
 
